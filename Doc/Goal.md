@@ -59,5 +59,14 @@ poker_vatch_optimzer
             └── templates/
 
 
-## 데이터 모델 
+## 순서
+
+domain (완료): 데이터베이스와 매핑될 핵심 Entity를 정의합니다.
+repository (완료): domain을 기반으로 데이터베이스에 접근하는 인터페이스를 정의합니다.
+service: repository를 사용하여 실제 비즈니스 로직을 구현합니다.
+config: Security, JWT 등 프로젝트 전반에 필요한 설정을 구성합니다.
+controller: service를 호출하여 클라이언트와 통신하는 API 엔드포인트를 만듭니다.
+batch: 등급 산정 등 스케줄링이 필요한 배치 작업을 구현합니다.
+
+
 
