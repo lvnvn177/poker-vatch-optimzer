@@ -26,5 +26,4 @@ public class GameSession {
 
     private LocalDateTime startedAt;
 
-
 }

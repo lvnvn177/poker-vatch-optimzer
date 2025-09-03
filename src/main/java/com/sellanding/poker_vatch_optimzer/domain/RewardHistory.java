@@ -5,29 +5,28 @@ import java.time.LocalDateTime;
 
 
 @Entity
-@Table(name = "chip_transaction") 
-public class ChipTransaction {
+@Table(name = "reward_histoty")
+public class RewardHistory {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
     @Column(nullable = false)
-    private Long changeAmount;
+    private String rewardType; // "rank_up", "rank_keep"
 
     @Column(nullable = false)
-    private String type; // "game_win", "reward", "purchase"
+    private Long amount;
 
-    @Column(nullable = false, updatable = false)
-    private LocalDateTime createdAt;
+    @Column(nullable = false)
+    private LocalDateTime givenAt;
 
     @PrePersist
-    protected void onCreate() {
-        createdAt = LocalDateTime.now();
+    protected void onGive() {
+        givenAt = LocalDateTime.now();
     }
-    
 }
